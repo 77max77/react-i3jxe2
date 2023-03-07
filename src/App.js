@@ -24,6 +24,7 @@ import StarIcon from '@mui/icons-material/Star';
 //드롭박스
 import Autocomplete from '@mui/material/Autocomplete';
 import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -80,10 +81,19 @@ const labels = {
   5: 'Excellent+',
 };
 
-export default function ButtonAppBar() {
-  const value = 3.5;
+export default function App(){
+  return(
+    <div>
+      <Container fixed>
+        <ButtonAppBar></ButtonAppBar>
+      </Container>
+     
+    </div>
+  );
+}
+
+function ButtonAppBar() {  
   return (
-  <Container fixed>
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="primary">
         <Toolbar>
@@ -115,10 +125,15 @@ export default function ButtonAppBar() {
         </Toolbar>
       </AppBar>
     </Box>
+  );
+}
 
-    <Card sx={{ maxWidth: 800 }}>
+function Card() {
+  const starvalue = 3.5;
+ return(
+  <Card sx={{ maxWidth: 345 }}>
       <CardMedia
-        sx={{ height: 500 }}
+        sx={{ height: 145 }}
         //image=
         //title=
       />
@@ -138,20 +153,18 @@ export default function ButtonAppBar() {
     >
       <Rating
         name="text-feedback"
-        value={value}
+        value={starvalue}
         readOnly
         precision={0.5}
         emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
       />
-      <Box sx={{ ml: 2 }}>{labels[value]}</Box>
+      <Box sx={{ ml: 2 }}>{labels[starvalue]}</Box>
     </Box>
       </CardContent>
       <CardActions>
         <Button size="small">review</Button>
       </CardActions>
     </Card>
-  </Container>
-   
-  );
+ );
 }
 
