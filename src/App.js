@@ -11,7 +11,19 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import Container from '@mui/material/Container';
+
 import Grid from '@mui/material/Grid';
+//상품정보
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+//별점
+import Rating from '@mui/material/Rating';
+import StarIcon from '@mui/icons-material/Star';
+//드롭박스
+import Autocomplete from '@mui/material/Autocomplete';
+import Stack from '@mui/material/Stack';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -54,7 +66,22 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
+
+const labels = {
+  0.5: 'Useless',
+  1: 'Useless+',
+  1.5: 'Poor',
+  2: 'Poor+',
+  2.5: 'Ok',
+  3: 'Ok+',
+  3.5: 'Good',
+  4: 'Good+',
+  4.5: 'Excellent',
+  5: 'Excellent+',
+};
+
 export default function ButtonAppBar() {
+  const value = 3.5;
   return (
   <Container fixed>
     <Box sx={{ flexGrow: 1 }}>
@@ -88,7 +115,43 @@ export default function ButtonAppBar() {
         </Toolbar>
       </AppBar>
     </Box>
-  </Container>
 
+    <Card sx={{ maxWidth: 800 }}>
+      <CardMedia
+        sx={{ height: 500 }}
+        //image=
+        //title=
+      />
+
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          name
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+        </Typography>
+        <Box
+      sx={{
+        width: 200,
+        display: 'flex',
+        alignItems: 'center',
+      }}
+    >
+      <Rating
+        name="text-feedback"
+        value={value}
+        readOnly
+        precision={0.5}
+        emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+      />
+      <Box sx={{ ml: 2 }}>{labels[value]}</Box>
+    </Box>
+      </CardContent>
+      <CardActions>
+        <Button size="small">review</Button>
+      </CardActions>
+    </Card>
+  </Container>
+   
   );
 }
+
