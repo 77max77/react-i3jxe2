@@ -82,7 +82,9 @@ export default function App(){
         <Grid item xs>
         <MediaCard></MediaCard>
         </Grid>
+        
      </Grid> 
+    
     </div>
   );
 }
@@ -125,10 +127,11 @@ function ButtonAppBar() {
 
 function MediaCard() {
  return(
-  <Card sx={{ maxWidth: 1000 }}>
+   <div>
+  <Card sx={{ display:'flex', maxWidth: 1000 }}>
       <CardMedia
-        sx={{ height: 200 }}
-        //image=
+        sx={{ height: 400 }}
+        image=""
         //title=
       />
       <CardContent>
@@ -142,7 +145,26 @@ function MediaCard() {
       <CardActions>
         <Button size="small">review</Button>
       </CardActions>
+      
     </Card>
+    이제품의 효과
+    <Card sx={{ display:'flex', maxWidth: 1000 }}>
+      <CardMedia
+        sx={{ height: 200 }}
+        image=""
+        //title=
+      />
+      <CardContent>
+      </CardContent>
+      <CardActions>
+        주요기능
+        <Button size="small">간건강</Button>
+        보조기능
+        <Button size="small">담즙</Button>
+      </CardActions>
+      
+    </Card>
+    </div>
  );
 }
 
