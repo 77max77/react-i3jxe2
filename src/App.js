@@ -128,6 +128,7 @@ function ButtonAppBar() {
 function MediaCard() {
  return(
    <div>
+     <Button size="small">name</Button>
   <Card sx={{ display:'flex', maxWidth: 1000 }}>
       <CardMedia
         sx={{ height: 400 }}
